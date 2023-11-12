@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getAptList } from '../services/apis/aptDropdown';
 
 function HouseSearchPage() {
+	const [aptList, setAptList] = useState([]);
+
+	async function GetAptList() {
+		const resp = await getAptList();
+		if (parseInt(resp.status / 200, 10) === 1) {
+			setAptList(resp.data);
+		}
+	}
+
+	useEffect(() => {
+		GetAptList();
+	}, []);
 	return (
 		<div className="subPageWrapper">
 			<div className="pageTitle">
@@ -15,9 +28,9 @@ function HouseSearchPage() {
 							<option disabled selected>
 								--단지명을 선택하세요--
 							</option>
-							<option value="1">아파트1</option>
-							<option value="2">아파트2</option>
-							<option value="3">아파트3</option>
+							{aptList.map(item => {
+								return <option value={item}>{item}</option>;
+							})}
 						</select>
 						<button>초기화</button>
 					</div>
