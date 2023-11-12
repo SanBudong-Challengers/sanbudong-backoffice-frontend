@@ -1,32 +1,23 @@
 import React from 'react';
 
-import logo from '../logo.svg';
-import '../App.css';
-
-import useStore from '../store/store';
+import Profile from '../assets/images/profile.jpg';
 
 function MainPage() {
-	const { count, increaseCount } = useStore();
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-				<p>
-					<button onClick={increaseCount}>increase</button>
-					{count}
-				</p>
-			</header>
+		<div className="mainPage">
+			<div className="mainPage__profile">
+				<img src={Profile} alt="" />
+				<div className="profile_text">
+					<span>
+						안녕하세요! <br />
+						해모로 동그라미 부동산입니다.
+					</span>
+				</div>
+			</div>
+
+			<div className="mainPage__contact">
+				<span>CONTACT</span> <span>대표 김은숙 010.2513.2655</span>
+			</div>
 		</div>
 	);
 }

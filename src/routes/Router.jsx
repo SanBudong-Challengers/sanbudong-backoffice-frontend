@@ -1,13 +1,19 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 // 임시 메인 페이지
 import MainPage from '../pages/MainPage';
+import HouseSearchPage from '../pages/HouseSearchPage';
+import Layout from '../components/layout/Layout';
 
 function Router() {
 	return (
 		<Routes>
-			<Route path="/" element={<MainPage />} />
+			<Route exact path="/" element={<Navigate to="/main" />} />
+			<Route path="/*" exact element={<Layout />}>
+				<Route path="main" element={<MainPage />} />
+				<Route path="search" element={<HouseSearchPage />} />
+			</Route>
 		</Routes>
 	);
 }

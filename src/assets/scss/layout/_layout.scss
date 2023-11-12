@@ -1,0 +1,8 @@
+.layout {
+	.layout__navbar {
+		height: 4rem;
+	}
+	.layout__content {
+		min-height: calc(100vh - 4rem);
+	}
+}

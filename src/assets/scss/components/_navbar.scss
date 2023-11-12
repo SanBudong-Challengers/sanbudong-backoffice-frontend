@@ -1,0 +1,38 @@
+* {
+	box-sizing: border-box;
+}
+
+.navbar {
+	padding: 1rem !important;
+	height: fit-content;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	background-color: #ff3c80;
+
+	.navbar__brand {
+		text-decoration: none;
+		color: black;
+		font-weight: 800;
+		img {
+			height: 2rem;
+		}
+	}
+
+	.navbar__content {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: center;
+
+		.navbar__item {
+			text-decoration: none;
+			color: black;
+			font-size: 1.2rem;
+			color: white;
+			font-weight: 600;
+		}
+	}
+}
