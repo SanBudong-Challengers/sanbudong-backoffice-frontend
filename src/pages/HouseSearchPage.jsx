@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react';
+
+// routes
+import { useNavigate } from 'react-router-dom';
+
+// apis
 import { getAptList } from '../services/apis/aptDropdown';
-import HouseListTable from '../components/table/HouseListTable';
 import { searchBuilding } from '../services/apis/building';
 
+// components
+import HouseListTable from '../components/table/HouseListTable';
+
 function HouseSearchPage() {
+	const navigate = useNavigate();
+
 	const [aptList, setAptList] = useState([]);
 	const [searchName, setSearchName] = useState('');
 	const [searchPriceMax, setSearchPriceMax] = useState('');
@@ -51,6 +60,10 @@ function HouseSearchPage() {
 		setSearchSizeMin(minSizeInput);
 	}
 
+	function goToHouseAdd() {
+		navigate('/house-add');
+	}
+
 	useEffect(() => {
 		GetBuildingList();
 	}, [searchName, searchPriceMax, searchPriceMin, searchSizeMax, searchSizeMin, searchType]);
@@ -70,6 +83,14 @@ function HouseSearchPage() {
 			<div className="pageTitle">
 				<span>매물 찾기</span>
 				<button className="optionButton">단지명 추가</button>
+				<button
+					className="optionButton"
+					onClick={() => {
+						goToHouseAdd();
+					}}
+				>
+					매물 추가
+				</button>
 			</div>
 			<div className="option">
 				<div className="optionItem">

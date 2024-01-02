@@ -20,7 +20,7 @@ export function addBuilding(queryStringRequest) {
 	return AxiosInterceptor({
 		url: `/add`,
 		method: 'post',
-		data: queryStringRequest,
+		params: queryStringRequest,
 	});
 }
 
