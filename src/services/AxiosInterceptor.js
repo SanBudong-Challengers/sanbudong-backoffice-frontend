@@ -2,8 +2,11 @@ import axios from 'axios';
 
 const AxiosInterceptor = axios.create({
 	baseURL: process.env.REACT_APP_BASE_URL,
+	// withCredentials: true,
 	// timeout: 15000,
 });
+
+axios.defaults.withCredentials = true;
 
 // request interceptors
 AxiosInterceptor.interceptors.request.use(
