@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from 'react';
 
@@ -29,6 +30,8 @@ function HouseAddPage() {
 	const [ownerMobileCarrier, setOwnerMobileCarrier] = useState('');
 	const [ownerPhone, setOwnerPhone] = useState('');
 
+	const [sizeType, setSizeType] = useState('0');
+
 	async function GetAptList() {
 		const resp = await getAptList();
 		if (parseInt(resp.status / 200, 10) === 1) {
@@ -45,7 +48,7 @@ function HouseAddPage() {
 			aptNote,
 			aptOption,
 			aptPrice,
-			aptSize,
+			aptSize: sizeType === 1 ? aptSize * 3.305785 : aptSize,
 			aptTransactionType,
 			aptType,
 			ownerMobileCarrier,
@@ -199,14 +202,42 @@ function HouseAddPage() {
 				</div>
 				<div className="form-row">
 					<div className="form-item">
-						<span>평수 *</span>
-						<input
-							type="text"
-							value={aptSize}
-							onChange={e => {
-								setAptSize(e.target.value);
-							}}
-						/>
+						<span>면적 *</span>
+						<div className="form-content">
+							<input
+								type="text"
+								value={aptSize}
+								onChange={e => {
+									setAptSize(e.target.value);
+								}}
+							/>
+							<input
+								type="radio"
+								name="sizeType"
+								value="0"
+								checked={sizeType === '0'}
+								id="sizeType-0"
+								onChange={e => {
+									console.log(e.target.value);
+									setSizeType(e.target.value);
+								}}
+							/>
+							<label htmlFor="sizeType-0">
+								m<sup>2</sup>
+							</label>
+							<input
+								type="radio"
+								name="sizeType"
+								value="1"
+								checked={sizeType === '1'}
+								id="sizeType-1"
+								onChange={e => {
+									console.log(e.target.value);
+									setSizeType(e.target.value);
+								}}
+							/>
+							<label htmlFor="sizeType-1">평</label>
+						</div>
 					</div>
 				</div>
 				<div className="form-row">

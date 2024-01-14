@@ -11,12 +11,12 @@ function LoginPage() {
 	async function authLogin() {
 		const resp = await login({ password });
 		if (parseInt(resp.status / 200, 10) === 1) {
-			// console.log(resp);
-			// console.log(state);
-			// if (state) {
-			navigate(state);
-		} else {
-			navigate('/search');
+			console.log(state);
+			if (state) {
+				navigate(state);
+			} else {
+				navigate('/search');
+			}
 		}
 	}
 	// }

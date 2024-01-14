@@ -96,13 +96,27 @@
 				align-items: flex-start;
 				width: 100%;
 				gap: 0.2rem;
+				.form-content {
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-start;
+					align-items: center;
+					gap: 0.5rem;
+					width: 100%;
+					input[type='text'] {
+						border-radius: 4px;
+						border: 1px solid lightgray;
+						height: 2rem;
+						width: 100%;
+					}
+				}
 				#phone-number-container {
 					display: flex;
 					flex-direction: row;
 					justify-content: flex-start;
 					gap: 1rem;
 				}
-				input,
+				input[type='text'],
 				select {
 					border-radius: 4px;
 					border: 1px solid lightgray;

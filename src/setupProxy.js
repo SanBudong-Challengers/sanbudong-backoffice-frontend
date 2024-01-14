@@ -4,8 +4,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
 	app.use(
-		'/login',
-		createProxyMiddleware({
+		createProxyMiddleware('/login', {
 			target: 'http://3.39.215.5:8080',
 			changeOrigin: true,
 		}),

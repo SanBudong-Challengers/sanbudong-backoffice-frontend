@@ -16,6 +16,7 @@ function Router() {
 			<Route path="/*" exact element={<Layout />}>
 				<Route path="main" element={<MainPage />} />
 				<Route path="login" element={<LoginPage />} />
+				<Route path="house-add" element={<HouseAddPage />} />
 			</Route>
 			<Route path="/*" exact element={<PrivateRoute component={<Layout />} />}>
 				<Route path="search" element={<HouseSearchPage />} />

@@ -2,6 +2,9 @@ import axios from 'axios';
 
 const AxiosInterceptor = axios.create({
 	baseURL: process.env.REACT_APP_BASE_URL,
+	changeOrigin: true,
+	timeout: 5000,
+	headers: { 'Content-Type': 'application/json' },
 	// withCredentials: true,
 	// timeout: 15000,
 });
