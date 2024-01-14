@@ -8,9 +8,10 @@ export function addAptListItem(queryStringRequest) {
 	});
 }
 
-export function getAptList() {
+export function getAptList(queryStringRequest) {
 	return AxiosInterceptor({
 		url: '/getApt',
 		method: 'get',
+		params: queryStringRequest,
 	});
 }

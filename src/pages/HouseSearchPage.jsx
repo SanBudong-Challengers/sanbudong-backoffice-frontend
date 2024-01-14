@@ -64,6 +64,10 @@ function HouseSearchPage() {
 		navigate('/house-add');
 	}
 
+	function goToHouseList() {
+		navigate('/house-list');
+	}
+
 	useEffect(() => {
 		GetBuildingList();
 	}, [searchName, searchPriceMax, searchPriceMin, searchSizeMax, searchSizeMin, searchType]);
@@ -82,7 +86,14 @@ function HouseSearchPage() {
 		<div className="subPageWrapper">
 			<div className="pageTitle">
 				<span>매물 찾기</span>
-				<button className="optionButton">단지명 추가</button>
+				<button
+					className="optionButton"
+					onClick={() => {
+						goToHouseList();
+					}}
+				>
+					단지명 편집
+				</button>
 				<button
 					className="optionButton"
 					onClick={() => {
